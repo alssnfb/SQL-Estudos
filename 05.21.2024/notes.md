@@ -51,4 +51,29 @@
     FROM tabela;
 
     /// é possível inserir um DISTINCT dentro do COUNT
+```
+
+- TOP -> Serve para filtrar a quantidade de dados selecionados de um SELECT
+
+```
+    SELECT TOP 10 *
+    FROM tabela;
+```
+
+- ORDER BY -> Permite ordenar o resulado de alguma coluna por ordem crescente ou decrescente
+
+```
+    SELECT coluna1,coluna2
+    FROM tabela;
+    ORDER BY coluna1 asc/desc
+```
+
+- BETWEEN ->  É usado para encontrar o valor entre um valor mínimo e um valor máximo
+
+```
+    SELECT *
+    FROM tabela;
+    WHERE ListPrice between 1000 and 1500;
+
+    /// para fazer o oposto é possível colocar um NOT antes do BETWEEN
 ```    
