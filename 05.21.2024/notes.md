@@ -43,3 +43,12 @@
 
     */
 ```    
+
+- COUNT -> Utilizado para saber o número de linhas que bate com uma condição
+
+```
+    SELECT COUNT(coluna1)
+    FROM tabela;
+
+    /// é possível inserir um DISTINCT dentro do COUNT
+```    
