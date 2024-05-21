@@ -30,17 +30,15 @@
     WHERE condicao;
 
     /*
-
-    OPERADOR    -   DESCRIÇÃO
-    =               IGUAL
-    >               MAIOR QUE
-    <               MENOR QUE
-    >=              MAIOR QUE OU IGUAL
-    <=              MENOR QUE OU IGUAL
-    <>              DIFERENTE DE
-    AND             OPERADOR LÓGICO "E"
-    OR              OPERADOR LÓGICO "OU"
-
+        OPERADOR    -   DESCRIÇÃO
+        =               IGUAL
+        >               MAIOR QUE
+        <               MENOR QUE
+        >=              MAIOR QUE OU IGUAL
+        <=              MENOR QUE OU IGUAL
+        <>              DIFERENTE DE
+        AND             OPERADOR LÓGICO "E"
+        OR              OPERADOR LÓGICO "OU"
     */
 ```    
 
@@ -73,7 +71,26 @@
 ```
     SELECT *
     FROM tabela;
-    WHERE ListPrice between 1000 and 1500;
+    WHERE ListPrice BETWEEN 1000 and 1500;
 
     /// para fazer o oposto é possível colocar um NOT antes do BETWEEN
+```    
+
+- IN -> é usado junto com o WHERE, para verificar se um valor corresponde com qualquer valor passado na lista de valores
+
+```
+    SELECT *
+    FROM Person.Person
+    WHERE BusinessEntityID IN (2,7,13)
+```
+- LIKE -> é usado para encontrar algo dentro da database que se pareça com as informações que você tem
+
+```
+    SELECT *
+    FROM person.Person
+    WHERE FirstName LIKE 'ovi%'
+
+    /* 
+        % -> se colocado no final vai ignorar tudo que tem depois, nesse caso só vai filtrar até o "OVI" e tudo que tiver depois não vai ser colocado no filtro, para o contrário é só colocar o % no começo '%ovi'
+    */    
 ```    
