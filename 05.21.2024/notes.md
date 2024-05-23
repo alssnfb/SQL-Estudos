@@ -156,10 +156,38 @@
     HAVING count(FirstName) > 10
  ```
 
- - INNER JOIN -> serve para juntar informações de tabelas diferentes
+- INNER JOIN -> serve para juntar informações iguais de tabelas diferentes
 
 ```
     SELECT C.ClienteID,C.Nome,E.Rua,E.Cidade
     FROM Cliente C
     INNER JOIN Endereco E ON E.EnderecoID = C.EnderecoId
-```    
+```
+
+- OUTER JOIN -> serve para juntar todas informações de duas tabelas, sendo iguais ou não, os valores que não existerem são retornados com NULL
+
+```
+  SELECT *
+  FROM Person.Person PP
+  LEFT JOIN Sales.PersonCreditCard PC
+  ON PP.BusinessEntityID = PC.BusinessEntityID
+```
+ 
+- UNION -> combina dois ou mais resultados de um select em um resultado apenas
+
+```
+    SELECT coluna1, coluna2
+    FROM tabela1
+    UNION
+    SELECT coluna1, coluna2
+    FROM tabela2
+```
+
+- SELF JOIN -> funciona como um INNER JOIN porém dentro da mesma tabela
+
+```
+    SELECT A.productId,A.discount,B.ProductID,b.discount
+    FROM [Order Details] A, [Order Details] B
+    WHERE A.Discount = B.Discount
+```
+
