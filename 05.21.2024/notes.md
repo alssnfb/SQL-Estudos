@@ -116,4 +116,50 @@
     SELECT TOP 10 AVG(linetotal) 
     FROM Sales.SalesOrderDetail
 ```
+
 - GROUP BY -> divide o resultado da sua pesquisa em grupos
+- Para cada grupo você pode aplicar uma função de agregação, por exemplo:
+    > - Calcular a soma de itens
+    > - Contar o número de itens naquele grupo
+
+```
+    SELECT coluna1, funcaoAgregacao(coluna2)
+    FROM nomeTabela
+    GROUP BY coluna1;
+
+    /// Exemplo:
+
+    SELECT *
+    FROM Sales.SalesOrderDetail
+
+    SELECT SpecialOfferID, SUM(UnitPrice) AS "SOMA"
+    FROM Sales.Sales
+```
+
+- HAVING -> é basicamente um WHERE para dados agrupados
+
+```
+    SELECT coluna1, funcaoAgregacao(coluna2)
+    FROM nomeTabela
+    GROUP BY coluna1
+    HAVING condicao;
+
+    /*
+        A diferença entre HAVING e WHERE é que o GROUP BY é aplicado depois que os dados já foram agrupados, enquanto WHERE é aplicado antes dos dados serem agrupados
+    */
+
+     vamos dizer que queremos saber quais nomes no sistema tem um ocorrencia maior que 10 vezes
+
+    SELECT FirstName, count(FirstName) as "Quantidade"
+    FROM person.Person
+    GROUP BY FirstName
+    HAVING count(FirstName) > 10
+ ```
+
+ - INNER JOIN -> serve para juntar informações de tabelas diferentes
+
+```
+    SELECT C.ClienteID,C.Nome,E.Rua,E.Cidade
+    FROM Cliente C
+    INNER JOIN Endereco E ON E.EnderecoID = C.EnderecoId
+```    
