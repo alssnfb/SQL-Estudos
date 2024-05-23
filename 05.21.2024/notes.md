@@ -191,3 +191,10 @@
     WHERE A.Discount = B.Discount
 ```
 
+- SUBQUERY (ou SUBSELECT) -> é um SELECT dentro de outro SELECT
+
+```
+    SELECT 
+    FROM production.Product
+    WHERE ListPrice > (SELECT AVG (ListPrice) from Production.Product)
+```    
