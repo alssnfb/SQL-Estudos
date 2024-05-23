@@ -93,4 +93,27 @@
     /* 
         % -> se colocado no final vai ignorar tudo que tem depois, nesse caso só vai filtrar até o "OVI" e tudo que tiver depois não vai ser colocado no filtro, para o contrário é só colocar o % no começo '%ovi'
     */    
-```    
+```
+
+- MIN, MAX, SUM, AVG -> são funções de agregação, agregam ou combinam dados de uma tabela em um resultado só
+    > - MIN = achar o valor mínimo
+    > - MAX = achar o valor máximo
+    > - SUM = soma dos valores
+    > - AVG = média dos valores
+
+```
+    SELECT TOP 10 sum(linetotal) AS "Soma" 
+    FROM Sales.SalesOrderDetail
+
+    /// o "AS" serve para dar apelido a uma coluna
+
+    SELECT TOP 10 MIN(linetotal) 
+    FROM Sales.SalesOrderDetail
+
+    SELECT TOP 10 MAX(linetotal) 
+    FROM Sales.SalesOrderDetail
+
+    SELECT TOP 10 AVG(linetotal) 
+    FROM Sales.SalesOrderDetail
+```
+- GROUP BY -> divide o resultado da sua pesquisa em grupos
