@@ -197,4 +197,16 @@
     SELECT 
     FROM production.Product
     WHERE ListPrice > (SELECT AVG (ListPrice) from Production.Product)
+```
+
+- DATEPART -> essa função retorna um inteiro correspondente à DATEPART de uma data especifica
+
+```
+    SELECT SalesOrderID,DATEPART(MONTH,OrderDate) as Mes
+    FROM Sales.SalesOrderHeader
+
+    SELECT AVG (TotalDue) Media, DATEPART(month,OrderDate) as Mes
+    FROM Sales.SalesOrderHeader
+    GROUP BY DATEPART(day,order date)
+    ORDER BY Mes
 ```    
