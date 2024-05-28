@@ -209,4 +209,102 @@
     FROM Sales.SalesOrderHeader
     GROUP BY DATEPART(day,order date)
     ORDER BY Mes
+```
+## Manipulação de String e Operações Matemáticas
+
+- É possível utilizar várias formas de operação com string para juntar informações diferentes
+
+```
+    SELECT CONCAT(LastName)
+    FROM Person.Person
+
+    /// isso vai fazer que o sobrenome seja concatenado com o primeiro nome
+``` 
+
+- É possível também usar operações matemáticas com os valores das tabelas
+
+```
+    SELECT UnitPrice + LineTotal
+    FROM Sales.OrderDetail
+
+    /// essa operação iria somar os valores das duas colunas, é possível também operações mais complexas como:
+
+    SELECT SQRT(LineTotal)
+    FROM Sales.OrderDetail
+
+    /// fazendo assim a raiz quadrada dos valores selecionados
 ```    
+## Tipos de Dados
+
+### Boleanos
+
+- Por padrão ele é incializado como nulo, e pode receber tanto 1 ou 0 BIT
+
+### Caracteres
+
+- Tamanho Fixo - **CHAR**
+    > - Permite inserir até uma quantidade fixa de caracters e sempre ocupa todo espaço reservado
+
+- Tamanhos Variáveis - **VCHAR** ou **NVARCHAR**    
+    > - Permite inserir até uma quantidade que for definida, porem só usa o espaço que for preenchido 
+
+## Números
+### Valores Exatos
+
+- TINYINT
+    > - Não tem parte valor fracionados (ex 1.43, 24.23) somente 1,123123123, 2342323, etc...
+
+- SMALLINT
+    > - Mesma coisa porém limite maior
+
+- INT
+    > - mesma coisa porém limite maior
+
+- BIGINT
+    > - mesma coisa porém limite maior
+
+- NUMERIC ou DECIMAL
+    > - Valores exatos, porem permite ter parte fracionados, que também pode ser especificado a precisão e escala (escala é o número de digitos na parte fracional)                
+
+### Valores Aproximados
+
+- REAL 
+    > - Tem precisão aproximada de até 15 digitos
+
+- FLOAT
+    > - mesmo conceito de REAL
+
+### Temporais
+
+- DATE
+    > - Armazena data no formato aaaa/mm/dd
+
+- DATETIME
+    > - Armazena data e horas no formato aaaa/mm/dd:hh:mm:ss
+
+- DATETIME2
+    > - Data e hora com milisegundos no formato aaaa/mm/dd:hh:mm:sssssss
+
+- SMALLDATETIME
+    > - Data e hora nos respeitando o limite entre '1900-01-01:00:00:00' até '2079-06-06:23:59:59'
+
+- TIME
+    > - Horas, minutos, segundos e milissegundos
+
+- DATETIMEOFFSET
+    > - Permite armazenar informações de data e horas incluindo o fuso horário
+
+## Chave Primária e Estrangeira
+### Chave Primária
+- Uma Chave Primária é basicamente uma coluna ou grupo de colunas, usada para identificar unicamente uma linha em uma tabela
+
+- Você consegue criar essas chaves primárias através que restrições que são regras que você define quanto está criando uma coluna
+
+- Assim quando você faz isso você está criando um índice único para aquela coluna ou grupo de colunas
+
+### Chave Estrangeira
+- No SQL Server você define uma chave estrangeira atraves de um "Foreign Key Constraint" ou Restrição de chave estrangeira
+
+- Uma Restrição de Chave Estrangeira indica que os valores em uma coluna ou grupo de colunas na tabela filho correspondem aos valores na tabela pai
+
+- Nos podemos entender que uma chave estrangeira mantem a "integridade referencial"
