@@ -210,6 +210,42 @@
     GROUP BY DATEPART(day,order date)
     ORDER BY Mes
 ```
+
+- UPDATE
+
+```
+    UPDATE nomeTabela
+    SET coluna1 = valor1
+        coluna2 = valor2
+    WHERE condicao
+```
+
+- ALTER TABLE - > altera a estrutura de uma tabela
+
+```
+    ALTER TABLE nomeDaTabela
+    ACAO
+
+    /// Exemplos do que pode ser feito:
+        - Add, Remover, or alterar uma coluna
+        - Set valores padrões para uma coluna
+        - Add ou Remover restrições de uma coluna
+        - Renomear uma tabela
+```            
+- DROP TABLE - > é usado para dropar uma tabela existente em uma database
+
+```
+    drop table ErrorLog
+```
+- CREATE VIEW -> Cria tabelas para consulta onde você usa outras tabelas como base para criar um nova tabela de pesquisa com apenas dados específicos que você precisa de uma tabela.
+
+```
+    CREATE VIEW [Pessoas Simplificado] AS
+    SELECT FirsName, MiddleName, LastName
+    FROM Person.Person
+    WHERE Title = "Ms.'
+```
+    
 ## Manipulação de String e Operações Matemáticas
 
 - É possível utilizar várias formas de operação com string para juntar informações diferentes
